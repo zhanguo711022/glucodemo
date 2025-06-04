@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GlucoMind AI Demo</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; max-width: 600px; margin: auto; background-color: #f9f9f9; }
+    h1 { font-size: 1.8rem; margin-bottom: 1rem; }
+    input, button { padding: 0.6rem; margin-top: 0.5rem; width: 100%; }
+    .card { background: #fff; border: 1px solid #ccc; padding: 1rem; margin-top: 1.5rem; }
+  </style>
+</head>
+<body>
+  <h1>GlucoMind AI - Meal Input Demo</h1>
+  <input type="text" id="mealInput" placeholder="Describe your meal (e.g. rice + chicken + salad)" />
+  <button onclick="generateAdvice()">Get AI Health Advice</button>
+  <div class="card" id="output" style="display:none;"></div>
+
+  <script>
+    function generateAdvice() {
+      const meal = document.getElementById('mealInput').value.trim();
+      if (!meal) return;
+      const carbs = Math.floor(Math.random() * 60 + 20);
+      const advice = "Consider a 20-minute walk after this meal to help stabilize glucose levels.";
+      document.getElementById('output').style.display = 'block';
+      document.getElementById('output').innerHTML = `
+        <p><strong>Meal:</strong> ${meal}</p>
+        <p><strong>Estimated Carbs:</strong> ${carbs}g</p>
+        <p><strong>AI Advice:</strong> ${advice}</p>
+      `;
+    }
+  </script>
+</body>
+</html>
